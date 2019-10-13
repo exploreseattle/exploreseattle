@@ -13,24 +13,22 @@ class IBWelcome extends Component {
         <h1>Welcome to Seattle!</h1>
         
         <div className="blurb">
-        Click on a pin on the map to learn more
-        Click around and explore Seattle’s
+        Click around to learn more about Seattle’s
 public art! Or if you’re looking for
-something more specific, try using 
-filters or search a particular artist or
-title below.
+something more specific, search below by a particular artist, 
+title, location, medium, etc.
 
         </div>
-
+        <input type="search" id="site-search" name="q"></input>
 
         <div className="dropdown">
        <button className="dropbtn">Search</button>
-       <div className="dropdown-content">
-         <a href="#">Title</a>
-         <a href="#">Artist</a>
+       
+         
+         
          </div>
        </div>
-      </div>
+      
     )
   }
 }
