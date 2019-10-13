@@ -9,13 +9,15 @@ class InfoBox extends Component {
   render() {
     return (
       <div className="InfoBox">
-               <form>
-          <h1>Welcome</h1>
-          <p>search</p>
-          <input
-            type="text"
-          />
-        </form>
+
+        <h1>Welcome</h1>
+        <div className="dropdown">
+       <butoon class="dropbtn">Search</butoon>
+       <div class="dropdown-content">
+         <a href="#">Title</a>
+         <a href="#">Artist</a> 
+         </div>
+       </div>
       </div>
     )
   }
