@@ -8,4 +8,28 @@
     margin: 20px;
     border: none;
     border-radius: 10px;
+    overflow: hidden;
+}
+
+.InfoBox-contents {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  transform: translate(0%);
+  transition: transform 0.5s ease;
+}
+
+.InfoBox--detail .InfoBox-contents {
+  transform: translate(-50%);
+}
+
+.InfoBox-contents > div {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  vertical-align: top;
 }

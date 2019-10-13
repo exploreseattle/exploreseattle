@@ -19,15 +19,17 @@ class InfoBox extends Component {
     }
 
     return (
-      <div className="InfoBox">
-        <IBWelcome
-          activateSearch={this.props.activateSearch}
-          commitSearch={this.props.commitSearch}
-        />
-        <IBDetail
-          data={this.props.data}
-          closeDetail={this.props.closeDetail}
-        />
+      <div className={cls}>
+        <div className="InfoBox-contents">
+          <IBWelcome
+            activateSearch={this.props.activateSearch}
+            commitSearch={this.props.commitSearch}
+          />
+          <IBDetail
+            data={this.props.data}
+            closeDetail={this.props.closeDetail}
+          />
+        </div>
       </div>
     );
   }

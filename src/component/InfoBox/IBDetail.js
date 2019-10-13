@@ -9,7 +9,7 @@ class IBDetail extends Component {
   render() {
     return (
       <div className="IBDetail">
-        <button onClick={this.props.hideDetail}>Back</button>
+        <button onClick={this.props.closeDetail}>Back</button>
         <p>{JSON.stringify(this.props.data)}</p>
       </div>
     )
