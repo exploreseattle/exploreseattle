@@ -10,7 +10,7 @@ class IBDetail extends Component {
 
   makeItemDetail(data) {
     return (
-      <div className="IBDetail-item">
+      <div className="IBDetail-item" key={data.key}>
         <h1>{data.title}</h1>
         <p className="IBDetail-artist">
           {data.fullArtist}{" "}
@@ -26,7 +26,7 @@ class IBDetail extends Component {
 
         {data.classification && (
           <p className="IBDetail-classification">
-            <i class="material-icons">brush</i>
+            <i className="material-icons">brush</i>
             <span>{data.classification}</span>
           </p>
         )}

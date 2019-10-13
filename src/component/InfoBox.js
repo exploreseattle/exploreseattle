@@ -28,9 +28,12 @@ class InfoBox extends Component {
             activateSearch={this.props.activateSearch}
             deactivateSearch={this.props.deactivateSearch}
             commitSearch={this.props.commitSearch}
+            onSelect={this.props.onSelect}
+            data={this.props.points}
           />
           <IBDetail
-            data={this.props.data}
+            searchActive={this.props.searchActive}
+            data={this.props.selectedData}
             closeDetail={this.props.closeDetail}
             commitSearch={this.props.commitSearch}
           />

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import IBSearchResults from "./IBSearchResults";
 import "./IBWelcome.css";
 
 class IBWelcome extends Component {
@@ -80,6 +81,13 @@ class IBWelcome extends Component {
             </button>
           </div>
         </div>
+
+        {this.props.searchActive &&
+          <IBSearchResults
+            data={this.props.data}
+            onSelect={this.props.onSelect}
+          />
+        }
       </div>
     );
   }

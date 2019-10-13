@@ -25,7 +25,6 @@ class MarkerSource extends Component {
           lng: data.geolocation.longitude
         }}
         options={{
-          /* global google */
           label: data.key === this.props.selectedPoint ? "⭐️" : null
         }}
         key={data.key}
@@ -35,15 +34,9 @@ class MarkerSource extends Component {
   }
 
   render() {
-    let data;
     this.seenPositions.clear();
-    if (this.props.filter) {
-      data = this.props.data.filter(this.props.filter);
-    } else {
-      data = this.props.data;
-    }
 
-    return data.map(this.makeMarker);
+    return this.props.data.map(this.makeMarker);
   }
 }
 

@@ -51,16 +51,14 @@ class App extends Component {
     this.setState({
       infoBoxSearchActive: true,
       infoBoxSearch: search,
-      filter(data) {
-        return (
+      points: this.rawData.filter((data) => (
           ~data.fullArtist.toLowerCase().indexOf(ls) ||
           ~data.title.toLowerCase().indexOf(ls) ||
           (data.classification && ~data.classification.toLowerCase().indexOf(ls)) ||
           (data.location && ~data.location.toLowerCase().indexOf(ls)) ||
           (data.description && ~data.description.toLowerCase().indexOf(ls)) ||
           (data.media && ~data.media.toLowerCase().indexOf(ls))
-        )
-      }
+        ))
     });
 
     // perform search!
@@ -70,7 +68,7 @@ class App extends Component {
     this.setState({
       infoBoxSearchActive: false,
       infoBoxSearch: "",
-      filter: () => true
+      points: this.rawData,
     });
   }
 
@@ -97,6 +95,7 @@ class App extends Component {
 
   async getPoints() {
     const points = await data;
+    this.rawData = points;
     this.setState({ points });
   }
 
@@ -107,7 +106,6 @@ class App extends Component {
           <MarkerSource
             selectedPoint={this.state.selectedPoint}
             data={this.state.points}
-            filter={this.state.filter}
             onSelect={this.selectPoint}
           />
         </MapView>
@@ -116,11 +114,13 @@ class App extends Component {
           setSearch={this.setSearch}
           searchActive={this.state.infoBoxSearchActive}
           detailVisible={this.state.infoBoxDetailVisible}
-          data={this.state.infoBoxData}
+          selectedData={this.state.infoBoxData}
           activateSearch={this.activateSearch}
           deactivateSearch={this.deactivateSearch}
           commitSearch={this.commitSearch}
           closeDetail={this.closeDetail}
+          onSelect={this.selectPoint}
+          points={this.state.points}
         />
       </div>
     );

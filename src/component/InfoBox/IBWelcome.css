@@ -109,3 +109,6 @@
 .InfoBox--search .IBWelcome-search {
   margin: 0;
 }
+.InfoBox--search .IBWelcome {
+  height: auto;
+}
