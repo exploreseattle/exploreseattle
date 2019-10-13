@@ -1,12 +1,25 @@
 .IBWelcome {
     text-align: center;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    font-size: 14px;
+}
+
+h1{
+    font-family: 'raleway', sans-serif;
+}
+
+.blurb{
+    font-size: 15px;
 }
 
 .dropbtn{
-    background-color: blue;
-    color: white;
+    margin-top: 80px;
+    background-color: white;
+    color: black;
     padding: 10px;
     font-size: 16px;
+    border-radius: 10px;
     border: none;
 }
 

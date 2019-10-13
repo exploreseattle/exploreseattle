@@ -1,11 +1,11 @@
 .InfoBox {
-    background: white;
+    background: #1b522b;
     width: 300px;
     height: 500px;
     position: fixed;
     right: 0;
-    top: 50px;
+    bottom: 0;
     margin: 20px;
-    border: solid 1px;
+    border: none;
     border-radius: 10px;
 }
