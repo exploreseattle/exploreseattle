@@ -1,29 +1,36 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Marker } from "@react-google-maps/api";
 
 class MarkerSource extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+    this.makeMarker = this.makeMarker.bind(this);
+  }
+
+  makeMarker(data) {
+    if (!data.geolocation) return null;
     return (
-      <Fragment>
-        {this.props.data.map(function(dat, n) {
-          if (dat.geolocation) {
-            return (
-              <Marker
-                position={{
-                  lat: parseFloat(dat.geolocation.latitude),
-                  lng: parseFloat(dat.geolocation.longitude)
-                }}
-                key={n}
-                onClick={() => {
-                  console.log(dat);
-                }}
-              />
-            );
-          }
-          return null;
-        })}
-      </Fragment>
+      <Marker
+        position={{
+          lat: data.geolocation.latitude,
+          lng: data.geolocation.longitude
+        }}
+        key={data.key}
+        onClick={() => this.props.onSelect(data)}
+      />
     );
+  }
+
+  render() {
+    let data;
+    if (this.props.filter) {
+      data = this.props.data.filter(this.props.filter);
+    } else {
+      data = this.props.data;
+    }
+
+    return data.map(this.makeMarker);
   }
 }
 
