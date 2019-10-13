@@ -19,7 +19,7 @@ class App extends Component {
 
     this.state = {
       points: [],
-      infoBoxData: {},
+      infoBoxData: [],
       infoBoxSearch: "",
       infoBoxSearchActive: false,
       infoBoxDetailVisible: false,

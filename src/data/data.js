@@ -24,14 +24,44 @@ const data = (async function() {
     deduped.push(point);
   });
 
-  // change geolocation to numeric and add unique key
   deduped.forEach((point, i) => {
+    // change geolocation to numeric
     point.geolocation = {
       ...point.geolocation,
       latitude: parseFloat(point.geolocation.latitude),
       longitude: parseFloat(point.geolocation.longitude)
     };
 
+    // add full artist name or unknown
+    const fullArtist = `${point.artist_first_name ||
+      ""} ${point.artist_last_name || ""}`.trim();
+    if (fullArtist) {
+      point.fullArtist = fullArtist;
+    } else {
+      point.fullArtist = "Unknown";
+    }
+
+    // get guaranteed address or lat/lng location
+    if (point.address) {
+      point.safeAddress = point.address;
+    } else {
+      point.safeAddress = `${point.latitude}, ${point.longitude}`;
+    }
+
+    point.description = point.description || "";
+
+    // strip quotes from description
+    if (point.description.substr(0, 1) === "'") {
+      point.description = point.description.substr(0, 1);
+    }
+    if (point.description.substr(-1, 1) === "'") {
+      point.description = point.description.substr(
+        0,
+        point.description.length - 1
+      );
+    }
+
+    // add unique key for item
     point.key = i;
   });
 
