@@ -51,14 +51,9 @@ class App extends Component {
     this.setState({
       infoBoxSearchActive: true,
       infoBoxSearch: search,
-      points: this.rawData.filter((data) => (
-          ~data.fullArtist.toLowerCase().indexOf(ls) ||
-          ~data.title.toLowerCase().indexOf(ls) ||
-          (data.classification && ~data.classification.toLowerCase().indexOf(ls)) ||
-          (data.location && ~data.location.toLowerCase().indexOf(ls)) ||
-          (data.description && ~data.description.toLowerCase().indexOf(ls)) ||
-          (data.media && ~data.media.toLowerCase().indexOf(ls))
-        ))
+      points: this.rawData.filter(
+        data => ~data.searchKey.indexOf(search.toLowerCase())
+      )
     });
 
     // perform search!

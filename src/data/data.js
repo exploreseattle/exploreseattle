@@ -61,6 +61,16 @@ const data = (async function() {
       );
     }
 
+    // make searching key
+    point.searchKey = [
+      point.fullArtist,
+      point.title,
+      point.classification,
+      point.location,
+      point.description,
+      point.media
+    ].filter(Boolean).join('$').toLowerCase()
+
     // add unique key for item
     point.key = i;
   });
