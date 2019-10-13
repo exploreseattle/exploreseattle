@@ -20,6 +20,7 @@ const data = (async function() {
     const key =
       point.latitude + point.longitude + point.artist_last_name + point.sac_id;
     if (entryLookup.has(key)) return;
+    if (~CONFIG.EXCLUDE.indexOf(point.sac_id)) return;
     entryLookup.add(key);
     deduped.push(point);
   });

@@ -15,9 +15,9 @@ class MapView extends Component {
   onLoad(map) {
     this.$map = map;
 
-    map.setZoom(14);
+    map.setZoom(13);
     /* global google */
-    map.setCenter(new google.maps.LatLng(47.65, -122.3));
+    map.setCenter(new google.maps.LatLng(47.621875, -122.326245));
     map.setOptions({
       disableDefaultUI: false,
       zoomControl: true,

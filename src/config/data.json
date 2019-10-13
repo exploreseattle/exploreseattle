@@ -4,5 +4,12 @@
     "LANDMARKS": "7nqc-eijt",
     "PUBLIC_ART": "j7sn-tdzk",
     "CULTURAL_SPACES": "vsxr-aydq"
-  }
+  },
+  "EXCLUDE": [
+    "CL04.089",
+    "CL77.011",
+    "SPU03.017",
+    "SPU03.018",
+    "SPU03.019"
+  ]
 }
