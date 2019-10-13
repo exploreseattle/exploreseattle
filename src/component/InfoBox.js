@@ -9,7 +9,13 @@ class InfoBox extends Component {
   render() {
     return (
       <div className="InfoBox">
-
+               <form>
+          <h1>Welcome</h1>
+          <p>search</p>
+          <input
+            type="text"
+          />
+        </form>
       </div>
     )
   }
