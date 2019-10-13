@@ -46,6 +46,13 @@ class IBWelcome extends Component {
           </div>
 
           <div className="IBWelcome-search">
+            {this.props.searchActive && (
+              <button onClick={this.props.deactivateSearch}>
+                <i className="material-icons" aria-label="close search">
+                  close
+                </i>
+              </button>
+            )}
             <input
               type="search"
               id="site-search"
@@ -82,12 +89,12 @@ class IBWelcome extends Component {
           </div>
         </div>
 
-        {this.props.searchActive &&
+        {this.props.searchActive && (
           <IBSearchResults
             data={this.props.data}
             onSelect={this.props.onSelect}
           />
-        }
+        )}
       </div>
     );
   }

@@ -32,6 +32,7 @@
 }
 
 .IBWelcome-search {
+  display: flex;
   position: relative;
   margin: 0.5rem 0;
   transition: margin 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -74,6 +75,27 @@
   line-height: 1;
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
+}
+
+.InfoBox--search .IBWelcome-search::before {
+  display: none;
+}
+.InfoBox--search .IBWelcome-search input {
+  padding-left: 0.5rem;
+  margin-left: 1rem;
+}
+.IBWelcome-search button {
+  appearance: none;
+  color: white;
+  opacity: 0.8;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: opacity 0.25s ease;
+}
+
+.IBWelcome-search button:hover {
+  opacity: 1;
 }
 
 .IBWelcome-hint {
