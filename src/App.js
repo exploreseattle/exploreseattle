@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+import { API_KEY } from './config/google.json';
+
+class App extends Component {
+  render() {
+    return (
+      <LoadScript
+        id="script-loader"
+        googleMapsApiKey={API_KEY}
+      >
+        <GoogleMap
+          id="main-map"
+          mapContainerStyle={{
+            height: "100vh",
+            width: "100vw"
+          }}
+          zoom={15}
+          center={{
+            lat: 47.653797,
+            lng: -122.307265
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Marker
+            onLoad={marker => {
+              console.log('marker: ', marker)
+            }}
+            position={{
+              lat: 47.655501,
+              lng: -122.305102
+            }}
+            onClick={function() {
+              alert("You clicked!")
+            }}
+          />
+        </GoogleMap>
+      </LoadScript>
+    )
+  }
 }
 
 export default App;

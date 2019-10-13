@@ -1,0 +1,8 @@
+{
+  "PROVIDER": "data.seattle.gov",
+  "DATASETS": {
+    "LANDMARKS": "7nqc-eijt",
+    "PUBLIC_ART": "j7sn-tdzk",
+    "CULTURAL_SPACES": "vsxr-aydq"
+  }
+}
