@@ -36,7 +36,7 @@ class IBWelcome extends Component {
       <div className="IBWelcome">
         <div className="IBWelcome-hero">
           <div className="IBWelcome-header">
-            <h1>Seattle Public Art Explorer</h1>
+            <h1>Seattle Public Art Walk</h1>
 
             <div className="IBWelcome-blurb">
               Click around to learn more about Seattle’s public art! Or, if
