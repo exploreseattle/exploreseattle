@@ -38,15 +38,20 @@ class IBSearchResults extends Component {
 
   render() {
     return (
-      <ul className="IBSearchResults">
-        {this.props.data.map(item => (
-          <IBSearchResult
-            item={item}
-            key={item.key}
-            onClick={this.props.onSelect}
-          />
-        ))}
-      </ul>
+      <React.Fragment>
+        <p className="IBSearchResults--count">
+          {""+this.props.data.length}{" result"}{this.props.data.length !== 1 ? "s" : ""}
+        </p>
+        <ul className="IBSearchResults">
+          {this.props.data.map(item => (
+            <IBSearchResult
+              item={item}
+              key={item.key}
+              onClick={this.props.onSelect}
+            />
+          ))}
+        </ul>
+      </React.Fragment>
     );
   }
 }

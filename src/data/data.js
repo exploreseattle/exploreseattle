@@ -61,6 +61,10 @@ const data = (async function() {
       );
     }
 
+    if (point.classification === "2-Dimensional" && point.media && point.media.toLowerCase().indexOf("concrete")) {
+      point.extra = "mural"
+    }
+
     // make searching key
     point.searchKey = [
       point.fullArtist,
@@ -68,7 +72,8 @@ const data = (async function() {
       point.classification,
       point.location,
       point.description,
-      point.media
+      point.media,
+      point.extra
     ].filter(Boolean).join('$').toLowerCase()
 
     // add unique key for item

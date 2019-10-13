@@ -68,8 +68,8 @@ class IBWelcome extends Component {
             <button onClick={() => this.props.commitSearch("Mural")}>
               Mural
             </button>
-            <button onClick={() => this.props.commitSearch("Light")}>
-              Light
+            <button onClick={() => this.props.commitSearch("Park")}>
+              Park
             </button>
             <button onClick={() => this.props.commitSearch("Mosaic")}>
               Mosaic
@@ -77,8 +77,8 @@ class IBWelcome extends Component {
             <button onClick={() => this.props.commitSearch("Steel")}>
               Steel
             </button>
-            <button onClick={() => this.props.commitSearch("Found")}>
-              Found
+            <button onClick={() => this.props.commitSearch("Environments")}>
+              Environments
             </button>
             <button onClick={() => this.props.commitSearch("Glass")}>
               Glass
