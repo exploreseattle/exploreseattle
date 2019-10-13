@@ -18,6 +18,7 @@ class App extends Component {
     this.selectPoint = this.selectPoint.bind(this);
 
     this.state = {
+      selectedPoint: -1,
       points: [],
       infoBoxData: [],
       infoBoxSearch: "",
@@ -55,6 +56,7 @@ class App extends Component {
 
   closeDetail() {
     this.setState({
+      selectedPoint: -1,
       infoBoxDetailVisible: false
     })
   }
@@ -67,6 +69,7 @@ class App extends Component {
     });
 
     this.setState({
+      selectedPoint: data.key,
       infoBoxData: matchingPoints,
       infoBoxDetailVisible: true
     });
@@ -82,6 +85,7 @@ class App extends Component {
       <div className="App">
         <MapView>
           <MarkerSource
+            selectedPoint={this.state.selectedPoint}
             data={this.state.points}
             filter={this.state.filter}
             onSelect={this.selectPoint}
