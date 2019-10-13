@@ -10,7 +10,7 @@ class IBSearchResult extends Component {
   }
 
   clickHandler(evt) {
-    this.props.onClick(this.props.item);
+    this.props.onClick(this.props.item, /*zoom to*/true);
     evt.preventDefault();
     return false;
   }

@@ -9,6 +9,7 @@ class MapView extends Component {
     super(props);
 
     this.onLoad = this.onLoad.bind(this);
+    this.zoomTo = this.zoomTo.bind(this);
   }
 
   onLoad(map) {
@@ -35,6 +36,15 @@ class MapView extends Component {
       rotateControl: false,
       fullscreenControl: false
     });
+
+    this.props.registerZoomHandler(this.zoomTo)
+  }
+
+  zoomTo(data) {
+    if (this.$map.getZoom() < 10) {
+      this.$map.setZoom(12)
+    }
+    this.$map.panTo(new google.maps.LatLng(data.geolocation.latitude, data.geolocation.longitude))
   }
 
   render() {

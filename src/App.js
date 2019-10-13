@@ -17,6 +17,7 @@ class App extends Component {
     this.deactivateSearch = this.deactivateSearch.bind(this);
     this.closeDetail = this.closeDetail.bind(this);
     this.selectPoint = this.selectPoint.bind(this);
+    this.registerZoomHandler = this.registerZoomHandler.bind(this);
 
     this.state = {
       selectedPoint: -1,
@@ -63,7 +64,7 @@ class App extends Component {
     this.setState({
       infoBoxSearchActive: false,
       infoBoxSearch: "",
-      points: this.rawData,
+      points: this.rawData
     });
   }
 
@@ -74,7 +75,13 @@ class App extends Component {
     });
   }
 
-  selectPoint(data) {
+  registerZoomHandler(cb) {
+    this.setState({
+      zoomTo: cb
+    });
+  }
+
+  selectPoint(data, zoom) {
     let matchingPoints = this.state.points.filter(point => {
       return (
         point.latitude === data.latitude && point.longitude === data.longitude
@@ -86,6 +93,10 @@ class App extends Component {
       infoBoxData: matchingPoints,
       infoBoxDetailVisible: true
     });
+
+    if (zoom && this.state.zoomTo) {
+      this.state.zoomTo(data);
+    }
   }
 
   async getPoints() {
@@ -97,7 +108,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MapView>
+        <MapView registerZoomHandler={this.registerZoomHandler}>
           <MarkerSource
             selectedPoint={this.state.selectedPoint}
             data={this.state.points}
@@ -116,6 +127,7 @@ class App extends Component {
           closeDetail={this.closeDetail}
           onSelect={this.selectPoint}
           points={this.state.points}
+          zoomTo={this.state.zoomTo}
         />
       </div>
     );

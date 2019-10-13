@@ -19,7 +19,7 @@ class IBDetail extends Component {
               className="IBDetail-artist-link"
               onClick={() => this.props.commitSearch(data.fullArtist)}
             >
-              (see more)
+              (all by this artist)
             </button>
           )}
         </p>
@@ -31,7 +31,7 @@ class IBDetail extends Component {
           </p>
         )}
 
-        <p className="IBDetail-address">
+        <p className="IBDetail-address" onClick={() => this.props.zoomTo(data)}>
           <i className="material-icons">my_location</i>
           <span>{data.safeAddress}</span>
         </p>

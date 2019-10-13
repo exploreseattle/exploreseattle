@@ -36,6 +36,7 @@ class InfoBox extends Component {
             data={this.props.selectedData}
             closeDetail={this.props.closeDetail}
             commitSearch={this.props.commitSearch}
+            zoomTo={this.props.zoomTo}
           />
         </div>
       </div>
