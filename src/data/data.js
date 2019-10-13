@@ -52,7 +52,7 @@ const data = (async function() {
 
     // strip quotes from description
     if (point.description.substr(0, 1) === "'") {
-      point.description = point.description.substr(0, 1);
+      point.description = point.description.substr(1);
     }
     if (point.description.substr(-1, 1) === "'") {
       point.description = point.description.substr(
