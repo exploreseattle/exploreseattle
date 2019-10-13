@@ -1,15 +1,17 @@
 .InfoBox {
-    background: white;
-    width: 300px;
-    height: 500px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    margin: 20px;
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    font-family: 'roboto', sans-serif;
+  background: white;
+  width: 20rem;
+  height: 26rem;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'roboto', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25),
+              0 12px 24px -12px rgba(0, 0, 0, 0.45);
 }
 
 .InfoBox h1,
@@ -36,7 +38,7 @@
   width: 50%;
   height: 100%;
   display: inline-block;
-  padding: 0.5rem;
+  padding: 1rem;
   box-sizing: border-box;
   vertical-align: top;
 }

@@ -43,7 +43,7 @@ const data = (async function() {
 
     // get guaranteed address or lat/lng location
     if (point.address) {
-      point.safeAddress = point.address;
+      point.safeAddress = point.address.trim();
     } else {
       point.safeAddress = `${point.latitude}, ${point.longitude}`;
     }

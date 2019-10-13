@@ -3,6 +3,36 @@
   height: 100%;
 }
 
+.IBDetail--back-button {
+  position: fixed;
+  background: white;
+  appearance: none;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.85);
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
+
+.IBDetail--back-button:hover {
+  opacity: 1;
+}
+
+.IBDetail--back-button .material-icons {
+  font-size: 16px;
+  line-height: 1rem;
+  vertical-align: middle;
+  padding-right: 1px;
+  color: inherit;
+}
+
+.IBDetail > :nth-child(2) {
+  margin-top: 2.5rem;
+}
+
 .IBDetail h1 {
   font-size: 1.5rem;
   font-weight: 300;
@@ -19,4 +49,39 @@
   border-bottom: 0;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.IBDetail-artist {
+  font-weight: 700;
+  line-height: 1rem;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.IBDetail-artist-link {
+  appearance: none;
+  border: 0;
+  text-decoration: underline;
+  color: #1e6d27;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  font-size: 0.8rem;
+}
+
+.IBDetail-classification .material-icons,
+.IBDetail-address .material-icons {
+  font-size: 16px;
+  padding-right: 0.5rem;
+  color: #1e6d27;
+}
+
+.IBDetail-classification, .IBDetail-address {
+  display: flex;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.IBDetail-description {
+
 }

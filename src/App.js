@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
 
     this.activateSearch = this.activateSearch.bind(this);
+    this.setSearch = this.setSearch.bind(this);
     this.commitSearch = this.commitSearch.bind(this);
     this.deactivateSearch = this.deactivateSearch.bind(this);
     this.closeDetail = this.closeDetail.bind(this);
@@ -38,19 +39,38 @@ class App extends Component {
     });
   }
 
-  commitSearch(search) {
+  setSearch(search) {
     this.setState({
-      infoBoxSearchActive: true,
       infoBoxSearch: search
     });
+  }
 
-    // perform search
+  commitSearch(search) {
+    let ls = search.toLowerCase();
+    this.closeDetail();
+    this.setState({
+      infoBoxSearchActive: true,
+      infoBoxSearch: search,
+      filter(data) {
+        return (
+          ~data.fullArtist.toLowerCase().indexOf(ls) ||
+          ~data.title.toLowerCase().indexOf(ls) ||
+          (data.classification && ~data.classification.toLowerCase().indexOf(ls)) ||
+          (data.location && ~data.location.toLowerCase().indexOf(ls)) ||
+          (data.description && ~data.description.toLowerCase().indexOf(ls)) ||
+          (data.media && ~data.media.toLowerCase().indexOf(ls))
+        )
+      }
+    });
+
+    // perform search!
   }
 
   deactivateSearch() {
     this.setState({
       infoBoxSearchActive: false,
-      infoBoxSearch: ""
+      infoBoxSearch: "",
+      filter: () => true
     });
   }
 
@@ -58,7 +78,7 @@ class App extends Component {
     this.setState({
       selectedPoint: -1,
       infoBoxDetailVisible: false
-    })
+    });
   }
 
   selectPoint(data) {
@@ -93,6 +113,7 @@ class App extends Component {
         </MapView>
         <InfoBox
           search={this.state.infoBoxSearch}
+          setSearch={this.setSearch}
           searchActive={this.state.infoBoxSearchActive}
           detailVisible={this.state.infoBoxDetailVisible}
           data={this.state.infoBoxData}

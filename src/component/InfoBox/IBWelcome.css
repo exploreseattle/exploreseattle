@@ -1,58 +1,111 @@
 .IBWelcome {
-    background-color: #1b522b;
-    text-align: center;
-    color: white;
-    font-size: 14px;
-    background-color: #1b522b;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
 }
 
-h1{
-    font-family: 'raleway', sans-serif;
+.IBWelcome-hero {
+  background-color: #1b522b;
+  margin: -1rem;
+  padding: 1rem;
+  min-height: 100%;
+  transition: min-height 0.75s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.blurb{
-    text-align: left;
-    font-size: 15px;
-    margin-right: 15px;
-    margin-left: 15px;
+.IBWelcome-header {
+  overflow: hidden;
+  max-height: 260px;
+  transition: max-height 0.75s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.dropbtn{
-    margin-top: 25px;
-    margin-left: 15px;
-    background-color: white;
-    color: black;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 30px;
-    border: none;
+.IBWelcome h1 {
+  font-size: 2rem;
+  line-height: 1.33;
+  margin-top: 1rem;
 }
 
-.dropdown{
-    position: relative;
-    display:inline-block;
-}
-/*
-.dropdown{
-    display:none;
-    position: absolute;
-    background-color: rgb(231, 36, 36);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px;
-    z-index: 1;
-}*/
-
-
-
-.dropdown a:hover{
-    background-color: #f1f1f1;
+.IBWelcome-blurb {
+  font-size: 0.875rem;
+  text-align: left;
+  margin: 1.5rem 1rem;
+  line-height: 1.25;
 }
 
-.dropdown:hover .dropdown{
-    display:block;
+.IBWelcome-search {
+  position: relative;
+  margin: 0.5rem 0;
+  transition: margin 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.IBWelcome-search input {
+  width: 100%;
+  display: block;
+  font-size: 1rem;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  border: none;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-family: inherit;
+  appearance: none;
+  color: white;
+  transition: background 0.25s ease;
+}
+.IBWelcome-search input:hover,
+.IBWelcome-search input:focus {
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.dropdown:hover .dropbtn{
-    background-color: #3e8e41;
-    text-align: center;
+.IBWelcome-search input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.IBWelcome-search::before {
+  content: 'search';
+  display: block;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  opacity: 0.75;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+}
+
+.IBWelcome-hint {
+  font-size: 0.8rem;
+  margin: 0 1rem;
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.IBWelcome-hint div {
+  margin: 1rem 0 1rem;
+}
+.IBWelcome-hint button {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  margin: 2px 4px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+
+.InfoBox--search .IBWelcome-header,
+.InfoBox--search .IBWelcome-hint {
+  max-height: 0;
+}
+.InfoBox--search .IBWelcome-hero {
+  min-height: 0;
+}
+.InfoBox--search .IBWelcome-search {
+  margin: 0;
 }

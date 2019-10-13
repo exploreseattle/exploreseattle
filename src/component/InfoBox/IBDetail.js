@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import './IBDetail.css';
+import "./IBDetail.css";
 
 class IBDetail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.makeItemDetail = this.makeItemDetail.bind(this);
   }
@@ -13,39 +13,52 @@ class IBDetail extends Component {
       <div className="IBDetail-item">
         <h1>{data.title}</h1>
         <p className="IBDetail-artist">
-          {data.fullArtist}
+          {data.fullArtist}{" "}
+          {data.fullArtist !== "Unknown" && (
+            <button
+              className="IBDetail-artist-link"
+              onClick={() => this.props.commitSearch(data.fullArtist)}
+            >
+              (see more)
+            </button>
+          )}
         </p>
 
-        {data.classification &&
+        {data.classification && (
           <p className="IBDetail-classification">
-            {data.classification}
+            <i class="material-icons">brush</i>
+            <span>{data.classification}</span>
           </p>
-        }
+        )}
 
         <p className="IBDetail-address">
-          {data.safeAddress}
+          <i className="material-icons">my_location</i>
+          <span>{data.safeAddress}</span>
         </p>
 
-        {data.description &&
-          <p className="IBDetail-description">
-            {data.description}
-          </p>
-        }
-
+        {data.description && (
+          <p className="IBDetail-description">{data.description}</p>
+        )}
       </div>
-    )
+    );
   }
 
   render() {
     return (
       <div className="IBDetail">
-        <button onClick={this.props.closeDetail}>Back</button>
+        <button
+          onClick={this.props.closeDetail}
+          aria-label="back"
+          className="IBDetail--back-button"
+        >
+          <i className="material-icons">arrow_back</i>
+        </button>
 
         {this.props.data.map(this.makeItemDetail)}
 
         {false && <p>{JSON.stringify(this.props.data)}</p>}
       </div>
-    )
+    );
   }
 }
 
