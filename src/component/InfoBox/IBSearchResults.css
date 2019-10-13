@@ -7,6 +7,12 @@
   overflow: auto;
 }
 
+@media screen and (max-width:500px) {
+  .IBSearchResults {
+    max-height: 13.5rem;
+  }
+}
+
 .IBSearchResults--count {
   color: rgba(0, 0, 0, 0.75);
   font-size: 0.8rem;

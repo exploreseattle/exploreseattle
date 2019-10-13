@@ -4,6 +4,12 @@
   font-size: 1rem;
 }
 
+@media screen and (max-width:500px) {
+  .IBWelcome {
+    overflow: auto;
+  }
+}
+
 .IBWelcome-hero {
   background-color: #1b522b;
   margin: -1rem;
