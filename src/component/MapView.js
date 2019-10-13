@@ -17,6 +17,24 @@ class MapView extends Component {
     map.setZoom(14);
     /* global google */
     map.setCenter(new google.maps.LatLng(47.65, -122.3));
+    map.setOptions({
+      disableDefaultUI: false,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+      },
+      scaleControl: false,
+      streetViewControl: true,
+      streetViewControlOptions: {
+        position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
+      rotateControl: false,
+      fullscreenControl: false
+    });
   }
 
   render() {
@@ -26,6 +44,10 @@ class MapView extends Component {
           <GoogleMap
             onLoad={this.onLoad}
             id="main-map"
+            clickableIcons={false}
+            options={{
+              disableDefaultUI: true
+            }}
             mapContainerStyle={{
               height: "100%",
               width: "100%"
